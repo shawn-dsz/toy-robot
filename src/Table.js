@@ -1,4 +1,4 @@
-class Point {
+export default class Table {
   constructor(x, y) {
     this.x = x
     this.y = y
@@ -7,5 +7,3 @@ class Point {
     return `(${this.x},  dd ${this.y})`
   }
 }
-
-export default Point
