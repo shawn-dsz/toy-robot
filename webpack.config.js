@@ -13,7 +13,7 @@ module.exports = {
     filename: './dist/app.bundle.js'
   },
 
-  devtool: 'source-map',
+  // devtool: 'inline-source-map',
   module: {
     preLoaders: [{
       test: /\.js$/,
