@@ -5,9 +5,9 @@ import Robot from './Robot'
 /*
   using vanila javascript to interact with the DOM
  */
-var inputText = document.getElementById('command').value
+var input = document.getElementById('instruction-input')
 
-
+//
 const display = (text) => {
   document.getElementById('status').innerHTML = text
 }
@@ -19,11 +19,12 @@ let robot = new Robot(table)
 document.getElementById('command-btn').onclick = () => {
 
 
-  var instruction = parse(inputText)
+  var instruction = parse(input.value)
+  console.log(instruction, input.value)
   robot.instruct(instruction)
   display(robot.report())
 
-  document.getElementById('command').value = 'MOVE'
+  input.value = 'MOVE'
 }
 
 

@@ -47,7 +47,7 @@ export default function Parse(text) {
   }
 
   return {
-    type: COMMAND.MAP.get(command)
+    command: COMMAND.MAP.get(command)
   }
 
 }

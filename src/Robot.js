@@ -18,7 +18,7 @@ export default class Robot {
 
   instruct(instruction) {
 
-    var {
+    const {
       command, direction, x, y
     } = instruction
 
@@ -65,10 +65,6 @@ export default class Robot {
   }
 
   move() {
-    if (this.x === null || this.y === null || this.direction === null) {
-      throw new Error('cant move without being placed')
-    }
-
     switch (this.direction) {
       case FACING.NORTH:
         this.y++
