@@ -2,15 +2,18 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>webpack ES6 demo</title>
+    <title>Toy Robot</title>
+  <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
 </head>
 <body>
-  <input id="instruction-input" type="text" value="PLACE 1,9,EAST" />
-  <input id="command-btn" type="button" value="command"/>
-  <input id="report-btn" type="button" value="report"/>
-  <input id="reset-btn" type="button" value="reset"/>
+  <form class="pure-form">
+  <input id="instruction-input" type="text" value="PLACE 1,5,EAST" />
+  <input id="command-btn" type="button"class="pure-button pure-button-primary" value="command"/>
+  <input id="report-btn" type="button"class="pure-button pure-button-primary" value="report"/>
+  <input id="reset-btn" type="button"class="pure-button pure-button-primary" value="reset"/>
   <span id="status"></span>
   <span id="error"></span>
+  <form>
   <script src="dist/app.bundle.js"></script>
 </body>
 </html>

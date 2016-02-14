@@ -1,9 +1,10 @@
 import parse from './parse'
 import Robot from './Robot'
 import Table from './Table'
-  /*
-    using vanila javascript to interact with the DOM
-   */
+
+/*
+  using vanila javascript to interact with the DOM
+ */
 var input = document.getElementById('instruction-input')
 var table = new Table(5)
   //
@@ -27,10 +28,9 @@ document.getElementById('command-btn').onclick = () => {
     input.value = 'MOVE'
   } catch (err) {
     console.error(err)
+    document.getElementById('error').innerHTML = err
   }
 }
-
-
 
 document.getElementById('reset-btn').onclick = () => {
   robot = new Robot(table)

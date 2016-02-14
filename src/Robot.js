@@ -33,7 +33,7 @@ export default class Robot {
         this.move()
         break
       case ROTATE.LEFT:
-        this.rotateLeft()
+        this.turnLeft()
         break
       case ROTATE.RIGHT:
         this.rotateRight()
@@ -46,12 +46,12 @@ export default class Robot {
     }
   }
 
-  rotateLeft() {
+  turnLeft() {
     this.direction = LeftMap.get(this.direction)
     console.log('facing', this.direction)
   }
 
-  rotateRight() {
+  turnRight() {
     this.direction = RightMap.get(this.direction)
     console.log('facing', this.direction)
   }
@@ -90,32 +90,32 @@ export default class Robot {
   }
 
   moveNorth() {
-    if (this.table.isValidHorziontalMove(this.x + 1)) {
-      this.x++
-    } else {
-      throw new Error('invalid placement')
-    }
-  }
-
-  moveSouth() {
-    if (this.table.isValidHorziontalMove(this.x - 1)) {
-      this.x--
-    } else {
-      throw new Error('invalid placement')
-    }
-  }
-
-  moveEast() {
-    if (this.table.isValidVerticalMove(this.y + 1)) {
+    if (this.table.isOnTable(this.y + 1)) {
       this.y++
     } else {
       throw new Error('invalid placement')
     }
   }
 
-  moveWest() {
-    if (this.table.isValidVerticalMove(this.y + 1)) {
+  moveSouth() {
+    if (this.table.isOnTable(this.y - 1)) {
       this.y--
+    } else {
+      throw new Error('invalid placement')
+    }
+  }
+
+  moveEast() {
+    if (this.table.isOnTable(this.x + 1)) {
+      this.x++
+    } else {
+      throw new Error('invalid placement')
+    }
+  }
+
+  moveWest() {
+    if (this.table.isOnTable(this.x + 1)) {
+      this.x--
     } else {
       throw new Error('invalid placement')
     }

@@ -8,12 +8,8 @@ export default class Table {
     return x <= this.size && y <= this.size
   }
 
-  isValidVerticalMove(y) {
-    return y <= this.size
-  }
-
-  isValidHorziontalMove(x) {
-    return x <= this.size
+  isOnTable(pos) {
+    return pos <= this.size
   }
 
 }
