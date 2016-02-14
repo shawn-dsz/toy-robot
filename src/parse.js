@@ -16,26 +16,22 @@ const isInt = (n) => {
 export default function Parse(text) {
   var args = text.split(/[ ,]+/)
   let command = args[0]
-  let x = args[1]
-  let y = args[2]
+  let x = parseInt(args[1])
+  let y = parseInt(args[2])
   let direction = args[3]
 
   if (command === COMMAND.PLACE) {
 
     if (!isInt(x)) {
-      console.log('error', x)
-    } else {
-      x = parseInt(x)
+      console.error('error', x)
     }
 
     if (!isInt(y)) {
-      console.log('error', y)
-    } else {
-      y = parseInt(y)
+      console.error('error', y)
     }
 
     if (FACING.MAP.get(direction) === undefined) {
-      console.log('error', direction)
+      console.error('error', direction)
     }
 
     return {

@@ -1,18 +1,10 @@
-// import {getInitCommand} from './parser'
 import FACING from './commands'
 
 import Table from './Table'
+import Robot from './Robot'
 
 export default class Simulator {
   constructor(init) {
-    console.log('Simulator', init)
-      // validat command is place
-      // validate place
-
-    // let commands = getInitCommand(init)
-    //validate commands
-    //
-    //if valid
 
 
     let table = new Table()
@@ -23,12 +15,5 @@ export default class Simulator {
     }
     var robot = new Robot(table, position)
 
-  }
-
-  placeRobot() {
-
-  }
-  report() {
-    return 'Output: 0,1,NORTH'
   }
 }

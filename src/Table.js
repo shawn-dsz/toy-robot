@@ -1,15 +1,19 @@
 export default class Table {
 
-  constructor(x, y) {
-    this.x = x
-    this.y = y
+  constructor(size) {
+    this.size = size || 5
   }
 
-  isValidPos(x, y, dir) {
-    console.log(x, y, dir)
+  isValidPlacement(x, y) {
+    return x <= this.size && y <= this.size
   }
 
-  toString() {
-    return `(${this.x},  dd ${this.y})`
+  isValidVerticalMove(y) {
+    return y <= this.size
   }
+
+  isValidHorziontalMove(x) {
+    return x <= this.size
+  }
+
 }

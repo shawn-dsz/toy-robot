@@ -1,18 +1,17 @@
 import parse from './parse'
-import Table from './Table'
 import Robot from './Robot'
-
-/*
-  using vanila javascript to interact with the DOM
- */
+import Table from './Table'
+  /*
+    using vanila javascript to interact with the DOM
+   */
 var input = document.getElementById('instruction-input')
-
-//
+var table = new Table(5)
+  //
 const display = (text) => {
   document.getElementById('status').innerHTML = text
 }
 
-const table = new Table()
+// const table = new Table()
 let robot = new Robot(table)
 
 
@@ -21,6 +20,7 @@ document.getElementById('command-btn').onclick = () => {
 
   var instruction = parse(input.value)
   console.log(instruction, input.value)
+
   robot.instruct(instruction)
   display(robot.report())
 

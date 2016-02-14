@@ -10,10 +10,12 @@ import {
 from './directionMapper'
 
 export default class Robot {
-  constructor(x, y, direction) {
-    this.x = x
-    this.y = y
-    this.direction = direction
+  constructor(table) {
+    if (!table) {
+      console.error('table is required')
+    } else {
+      this.table = table
+    }
   }
 
   instruct(instruction) {
@@ -54,8 +56,13 @@ export default class Robot {
   }
 
   place(x, y, direction) {
-    this.x = x
-    this.y = y
+    if (this.table.isValidPlacement(x, y)) {
+      this.x = x
+      this.y = y
+    } else {
+      console.error('invalid placement')
+    }
+    // direction is always valid
     this.direction = direction
   }
 
@@ -67,17 +74,50 @@ export default class Robot {
   move() {
     switch (this.direction) {
       case FACING.NORTH:
-        this.y++
-          break
+        this.moveNorth()
+        break
       case FACING.SOUTH:
-        this.y--
-          break
+        this.moveSouth()
+        break
       case FACING.EAST:
-        this.x++
-          break
+        this.moveEast()
+        break
       case FACING.WEST:
-        this.x--
-          break
+        this.moveWest()
+        break
     }
   }
+
+  moveNorth() {
+    if (this.table.isValidHorziontalMove(this.x + 1)) {
+      this.x++
+    } else {
+      console.error('invalid placement; would result in robot\' destruction')
+    }
+  }
+
+  moveSouth() {
+    if (this.table.isValidHorziontalMove(this.x - 1)) {
+      this.x--
+    } else {
+      console.error('invalid placement; would result in robot\' destruction')
+    }
+  }
+
+  moveEast() {
+    if (this.table.isValidVerticalMove(this.y + 1)) {
+      this.y++
+    } else {
+      console.error('invalid placement; would result in robot\' destruction')
+    }
+  }
+
+  moveWest() {
+    if (this.table.isValidVerticalMove(this.y + 1)) {
+      this.y--
+    } else {
+      console.error('invalid placement; would result in robot\' destruction')
+    }
+  }
+
 }
