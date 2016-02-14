@@ -1,4 +1,4 @@
-import { COMMAND, FACING } from './commands'
+import { COMMAND, FACING } from '../consts/commands'
 
 const isInt = (n) => {
   return Number(n) === n && n % 1 === 0
@@ -19,15 +19,15 @@ export default function Parse(text) {
   if (command === COMMAND.PLACE) {
 
     if (!isInt(x)) {
-      console.error('error', x)
+      throw new Error(`unable to parse "${x}"`)
     }
 
     if (!isInt(y)) {
-      console.error('error', y)
+      throw new Error(`unable to parse "${y}"`)
     }
 
     if (FACING.MAP.get(direction) === undefined) {
-      console.error('error', direction)
+      throw new Error(`unable to parse "${direction}"`)
     }
 
     return {

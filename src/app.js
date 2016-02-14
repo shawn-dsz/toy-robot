@@ -1,4 +1,4 @@
-import parse from './parse'
+import parse from './util/parse'
 import Robot from './Robot'
 import Table from './Table'
 
@@ -28,7 +28,7 @@ document.getElementById('command-btn').onclick = () => {
     input.value = 'MOVE'
   } catch (err) {
     console.error(err)
-    document.getElementById('error').innerHTML = err
+    document.getElementById('error').innerHTML = err.message
   }
 }
 

@@ -1,6 +1,6 @@
 /*globals beforeEach*/
 import Table from '../src/Table'
-import parse from '../src/Parse'
+import parse from '../src/util/Parse'
 import Robot from '../src/Robot'
 import { expect } from 'chai'
 
@@ -62,18 +62,37 @@ describe('Given a robot', () => {
       expect(robot.report()).to.equal('Output: 2, 2, WEST')
     })
 
+    describe('it should pass simple test cases outlined in the brief', () => {
+      it('it should move', () => {
+        const instruction = parse('PLACE 0, 0, NORTH')
+        robot.instruct(instruction)
+        robot.move()
+        expect(robot.report()).to.equal('Output: 0, 1, NORTH')
+        //TODO
+      })
+      it('it should turn', () => {
+        const instruction = parse('PLACE 0, 0, NORTH')
+        robot.instruct(instruction)
+        robot.turnLeft()
+        expect(robot.report()).to.equal('Output: 0, 0, WEST')
+        //TODO
+      })
+      it('it should move & turn', () => {
+        const instruction = parse('PLACE 1, 2, EAST')
+        robot.instruct(instruction)
+        robot.move()
+        robot.move()
+        robot.turnLeft()
+        robot.move()
+        expect(robot.report()).to.equal('Output: 3, 3, NORTH')
+        //TODO
+      })
+    })
 
     describe('and that the Robot is on the edge', () => {
       beforeEach(function() {
         table = new Table(2)
         robot = new Robot(table)
-        const instruction = parse('PLACE 2, 2, EAST')
-        robot.instruct(instruction)
-      })
-
-
-      it('it should NOT fall to the right', () => {
-        //TODO
       })
 
       it('it should NOT fall to the left', () => {

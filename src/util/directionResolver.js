@@ -1,7 +1,4 @@
-import {
-  FACING
-}
-from './commands'
+import { FACING } from '../consts/commands'
 
 export const LeftMap = new Map()
 

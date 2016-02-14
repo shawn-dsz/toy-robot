@@ -1,4 +1,4 @@
-import FACING from './commands'
+import FACING from './consts/commands'
 
 import Table from './Table'
 import Robot from './Robot'

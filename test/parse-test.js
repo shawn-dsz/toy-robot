@@ -1,11 +1,7 @@
-import {
-  expect
-}
-from 'chai'
+import { expect } from 'chai'
 
 
-import parse
-from '../src/parse'
+import parse from '../src/util/parse'
 
 describe('#parse', () => {
   it('parse the place command', () => {
@@ -17,6 +13,26 @@ describe('#parse', () => {
       direction: 'EAST',
       command: 'PLACE'
     })
+  })
+
+  it('parse the MOVE command', () => {
+    let pos = parse('MOVE')
+    expect(pos).to.deep.equal({ command: 'MOVE' })
+  })
+
+  it('parse the RIGHT command', () => {
+    let pos = parse('RIGHT')
+    expect(pos).to.deep.equal({ command: 'RIGHT' })
+  })
+
+  it('parse the LEFT command', () => {
+    let pos = parse('LEFT')
+    expect(pos).to.deep.equal({ command: 'LEFT' })
+  })
+
+  it('parse the REPORT command', () => {
+    let pos = parse('REPORT')
+    expect(pos).to.deep.equal({ command: 'REPORT' })
   })
 
   // it('parse the move command', () => {

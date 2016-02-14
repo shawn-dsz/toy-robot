@@ -1,14 +1,5 @@
-import {
-  FACING,
-  COMMAND,
-  ROTATE
-}
-from './commands'
-import {
-  LeftMap,
-  RightMap
-}
-from './directionMapper'
+import { FACING, COMMAND, ROTATE } from './consts/commands'
+import { LeftMap, RightMap } from './util/directionResolver'
 
 export default class Robot {
   constructor(table) {
@@ -20,10 +11,7 @@ export default class Robot {
   }
 
   instruct(instruction) {
-
-    const {
-      command, direction, x, y
-    } = instruction
+    const { command, direction, x, y } = instruction
 
     switch (command) {
       case COMMAND.REPORT:
@@ -42,18 +30,18 @@ export default class Robot {
         this.place(x, y, direction)
         break
       default:
-        throw new Error('command not found', command)
+        throw new Error(`Invalid command`)
     }
   }
 
   turnLeft() {
     this.direction = LeftMap.get(this.direction)
-    console.log('facing', this.direction)
+    console.log('Facing:', this.direction)
   }
 
   turnRight() {
     this.direction = RightMap.get(this.direction)
-    console.log('facing', this.direction)
+    console.log('Facing:', this.direction)
   }
 
   place(x, y, direction) {
@@ -63,7 +51,7 @@ export default class Robot {
       this.x = x
       this.y = y
     } else {
-      throw new Error('invalid placement')
+      throw new Error(`Invalid placement ${this.x}, ${this.y}`)
     }
   }
 
@@ -86,6 +74,8 @@ export default class Robot {
       case FACING.WEST:
         this.moveWest()
         break
+      default:
+        throw new Error('Invalid direction')
     }
   }
 
@@ -93,7 +83,7 @@ export default class Robot {
     if (this.table.isOnTable(this.y + 1)) {
       this.y++
     } else {
-      throw new Error('invalid placement')
+      console.log('Invalid placement')
     }
   }
 
@@ -101,7 +91,7 @@ export default class Robot {
     if (this.table.isOnTable(this.y - 1)) {
       this.y--
     } else {
-      throw new Error('invalid placement')
+      console.log('Invalid placement')
     }
   }
 
@@ -109,7 +99,7 @@ export default class Robot {
     if (this.table.isOnTable(this.x + 1)) {
       this.x++
     } else {
-      throw new Error('invalid placement')
+      console.log('Invalid placement')
     }
   }
 
@@ -117,7 +107,7 @@ export default class Robot {
     if (this.table.isOnTable(this.x + 1)) {
       this.x--
     } else {
-      throw new Error('invalid placement')
+      console.log('Invalid placement')
     }
   }
 
