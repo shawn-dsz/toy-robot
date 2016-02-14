@@ -65,6 +65,8 @@ export default class Robot {
     } else {
       throw new Error('invalid placement')
     }
+    console.log(this.x)
+
   }
 
   report() {
@@ -90,6 +92,22 @@ export default class Robot {
   }
 
   moveNorth() {
+    if (this.table.isValidVerticalMove(this.y + 1)) {
+      this.y = y+1
+    } else {
+      throw new Error('invalid placement')
+    }
+  }
+
+  moveSouth() {
+    if (this.table.isValidVerticalMove(this.y - 1)) {
+      this.y--
+    } else {
+      throw new Error('invalid placement')
+    }
+  }
+
+  moveEast() {
     if (this.table.isValidHorziontalMove(this.x + 1)) {
       this.x++
     } else {
@@ -97,25 +115,9 @@ export default class Robot {
     }
   }
 
-  moveSouth() {
-    if (this.table.isValidHorziontalMove(this.x - 1)) {
-      this.x--
-    } else {
-      throw new Error('invalid placement')
-    }
-  }
-
-  moveEast() {
-    if (this.table.isValidVerticalMove(this.y + 1)) {
-      this.y++
-    } else {
-      throw new Error('invalid placement')
-    }
-  }
-
   moveWest() {
-    if (this.table.isValidVerticalMove(this.y + 1)) {
-      this.y--
+    if (this.table.isValidHorziontalMove(this.x + 1)) {
+      this.x--
     } else {
       throw new Error('invalid placement')
     }

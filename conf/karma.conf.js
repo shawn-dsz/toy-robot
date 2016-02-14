@@ -88,8 +88,8 @@ module.exports = function(config) {
       'webpack.test.js': ['webpack']
     },
 
-    reporters: ['dots'],
-
+    // reporters: ['dots'],
+ reporters: ['progress'],
     webpack: {
       devtool: 'inline-source-map',
       module: {

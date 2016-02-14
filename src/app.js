@@ -17,14 +17,17 @@ let robot = new Robot(table)
 
 document.getElementById('command-btn').onclick = () => {
 
+  try{
+    var instruction = parse(input.value)
+    console.log(instruction, input.value)
 
-  var instruction = parse(input.value)
-  console.log(instruction, input.value)
+    robot.instruct(instruction)
+    display(robot.report())
 
-  robot.instruct(instruction)
-  display(robot.report())
-
-  input.value = 'MOVE'
+    input.value = 'MOVE'
+  } catch (err) {
+    console.error(err)
+  }
 }
 
 

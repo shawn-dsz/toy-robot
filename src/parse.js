@@ -1,8 +1,4 @@
-import {
-  COMMAND,
-  FACING
-}
-from './commands'
+import { COMMAND, FACING } from './commands'
 
 const isInt = (n) => {
   return Number(n) === n && n % 1 === 0
