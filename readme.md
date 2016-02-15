@@ -1,5 +1,41 @@
 # Toy Robot Simulator
 
+## Objective
+
+I have written the app with minimal CSS and DOM manipulation on purpose.
+The purpose of the project is to solve the Toy Robot puzzle described.
+
+## Usage
+
+Open index.html in your browser.
+
+
+## Technologies used
+
+- ES2015 & [Babel](https://babeljs.io/docs/learn-es2015/)
+- [Webpack](https://webpack.github.io/)
+- [Karma Test Runner](https://karma-runner.github.io/0.13/index.html)
+
+## Installation
+
+```bash
+> npm install
+```
+To run the unit test using the [**Karma Test Runner**](https://karma-runner.github.io/0.13/index.html) run the following:
+```
+> npm run test
+```
+
+To serve the files using webpack's dev server run the following:
+```
+> npm run dev
+```
+
+## Architecture
+
+
+
+---
 # Description
 - The application is a simulation of a toy robot moving on a square tabletop, of dimensions 5 units x 5 units.
 - There are no other obstructions on the table surface.
@@ -60,17 +96,3 @@ MOVE
 REPORT
 Output: 3,3,NORTH
 ```
-
-## Installation
-
-```bash
-> npm install
-> npm run test
-```
-
-To setup webpack's dev run the following:
-```
-> npm run dev
-```
-
-## Architecture

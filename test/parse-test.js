@@ -15,8 +15,24 @@ describe('#parse', () => {
     })
   })
 
+  it('parse the place command', () => {
+    let pos = parse('PLACE 1, 2, north')
+
+    expect(pos).to.deep.equal({
+      x: 1,
+      y: 2,
+      direction: 'NORTH',
+      command: 'PLACE'
+    })
+  })
+
   it('parse the MOVE command', () => {
     let pos = parse('MOVE')
+    expect(pos).to.deep.equal({ command: 'MOVE' })
+  })
+
+  it('parse lowercase commands eg. move', () => {
+    let pos = parse('move')
     expect(pos).to.deep.equal({ command: 'MOVE' })
   })
 
@@ -35,12 +51,6 @@ describe('#parse', () => {
     expect(pos).to.deep.equal({ command: 'REPORT' })
   })
 
-  // it('parse the move command', () => {
-  //   let pos = parse('MOVE')
-  //
-  //   expect(pos).to.deep.equal({
-  //     command: 'MOVE'
-  //   })
-  // })
+
 
 })

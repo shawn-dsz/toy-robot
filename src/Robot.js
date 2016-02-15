@@ -45,13 +45,16 @@ export default class Robot {
   }
 
   place(x, y, direction) {
-    // direction is always valid
-    this.direction = direction
+    if(FACING.MAP.get(direction)){
+      this.direction = direction
+    } else {
+      throw new Error(`Invalid direction`)
+    }
     if (this.table.isValidPlacement(x, y)) {
       this.x = x
       this.y = y
     } else {
-      throw new Error(`Invalid placement ${this.x}, ${this.y}`)
+      throw new Error(`Invalid placement: ${x}, ${y}`)
     }
   }
 

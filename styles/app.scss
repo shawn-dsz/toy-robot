@@ -1,0 +1,42 @@
+.button {
+
+  padding: .5em 1em;
+  color: #444;
+  color: rgba(0,0,0,.8);
+  border: 1px solid #999;
+  border: 0 rgba(0,0,0,0);
+  background-color: #E6E6E6;
+  text-decoration: none;
+  border-radius: 2px;
+      font-size: 125%;
+}
+
+.instruction-input {
+  font-size: 125%;
+}
+
+.error {
+  color: red;
+  font-family: sans-serif;
+}
+
+.status {
+  font-family: sans-serif;
+}
+.container {
+  height: 400px;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+
+input {
+  padding: 5px;
+}
+
+body {
+  background-color:  #FFF0E0;
+}

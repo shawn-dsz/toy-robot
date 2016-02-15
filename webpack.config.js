@@ -22,12 +22,16 @@ module.exports = {
       exclude: /(node_modules|bower_components)/
     }],
     loaders: [
-      //{ test: /\.css$/, loader: 'style!css' },
+      {
+        test: /\.scss$/,
+        loaders: ['style', 'css', 'sass']
+      },
       {
         test: /\.js$/,
-        loader: 'babel-loader', query: {
-        presets: ['es2015']
-    }
+        loader: 'babel-loader',
+        query: {
+          presets: ['es2015']
+        }
       }
     ]
   },
