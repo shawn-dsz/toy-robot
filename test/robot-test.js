@@ -93,7 +93,6 @@ describe('Given a robot', () => {
       expect(robot.report()).to.equal('Output: 0, 0, NORTH')
     })
 
-
     it('it should NOT be able to move to the west', () => {
       robot.turnLeft()
       robot.turnLeft()
@@ -108,24 +107,28 @@ describe('Given a robot', () => {
       robot.move()
       expect(robot.report()).to.equal('Output: 0, 0, SOUTH')
     })
-
-
   })
 
-  // describe('attempt to place it in an invalid position', () => {
-  //   beforeEach(function() {
-  //     table = new Table(2)
-  //     robot = new Robot(table)
-  //     const instruction = parse('PLACE 1, 1, EAST')
-  //     expect(()=>{robot.instruct(instruction)}).to.throw(Error)
-  //   })
-  //
-  //   it('it should move & turn', () => {
-  //     robot.move()
-  //     robot.move()
-  //     robot.turnLeft()
-  //     robot.move()
-  //     expect(robot.report()).to.equal('Output: 3, 3, NORTH')
-  //   })
-  // })
+  describe('attempt to place it in an invalid position', () => {
+    beforeEach(function() {
+      table = new Table(2)
+      robot = new Robot(table)
+      //const instruction = parse('PLACE 1, 1, EAST')
+      // expect(()=>{robot.instruct(instruction)}).to.throw(Error)
+    })
+    //
+    // it('it should move & turn', () => {
+    //   robot.move()
+    //   robot.move()
+    //   robot.turnLeft()
+    //   robot.move()
+    //   expect(robot.report()).to.equal('Output: 3, 3, NORTH')
+    // })
+    //
+
+    // it('should bot be able to report without first being placed', () => {
+    //   const instruction = parse('REPORT')
+    //   expect(()=>{robot.instruct(instruction)}).to.throw(Error)
+    // })
+  })
 })

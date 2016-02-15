@@ -7,12 +7,19 @@
 <body>
   <div class="container">
     <div>
-
+      <h1>Toy Robot Simulator</h1>
+      <textarea id="terminal" disabled="true">
+      </textarea>
+    </br>
       <input id="instruction-input" type="text" placeholder="Type a command" class="instruction-input"/>
     </br>
-      <span id="status" class="status"></span>
+    <div class="status">
+      <span id="status"></span>
+    </div>
     </br>
-      <span id="error" class="error"></span>
+      <div class="error">
+        <span id="error"></span>
+      </div>
     </br>
   </div>
     <script src="dist/app.bundle.js"></script>

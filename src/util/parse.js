@@ -16,18 +16,18 @@ export default function Parse(text) {
   if (command === COMMAND.PLACE) {
     const x = parseInt(args[1])
     const y = parseInt(args[2])
-    const direction = args[3].toUpperCase()
+    const direction = args[3] ? args[3].toUpperCase() : null
 
     if (!isInt(x)) {
-      throw new Error(`Invalid position "${x}"`)
+      throw new Error(`Invalid {x} position`)
     }
 
     if (!isInt(y)) {
-      throw new Error(`Invalid position "${y}"`)
+      throw new Error(`Invalid {x} position`)
     }
 
     if (FACING.MAP.get(direction) === undefined) {
-      throw new Error(`unable to parse "${direction}"`)
+      throw new Error(`Invalid direction`)
     }
 
     return {

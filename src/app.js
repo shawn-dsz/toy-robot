@@ -1,32 +1,36 @@
 import parse from './util/parse'
 import Robot from './Robot'
 import Table from './Table'
-// import '../styles/app.scss'
+import '../styles/app.scss'
 
-/*
-  using vanila javascript to interact with the DOM
- */
+const input = document.getElementById('instruction-input')
+const terminal = document.getElementById('terminal')
 
-var input = document.getElementById('instruction-input')
-const display = (text) => {
-  document.getElementById('status').innerHTML = text
-  document.getElementById('error').innerHTML = null
-}
-
-var table = new Table(2)
+const table = new Table(5)
 let robot = new Robot(table)
 
-document.getElementById('instruction-input').addEventListener('keydown', function(e) {
+const display = (text) => {
+  terminal.value = `${terminal.value}\n${text}`
+  terminal.scrollTop = terminal.scrollHeight
+}
+
+input.addEventListener('keydown', (e) => {
   if (e.keyCode == 13) {
     e.preventDefault()
-    try {
-      var instruction = parse(input.value)
-      console.log(instruction, input.value)
-      robot.instruct(instruction)
-      display(robot.report())
-    } catch (err) {
-      console.error(err)
-      document.getElementById('error').innerHTML = err.message
+
+    if(input.value === 'cls'){
+      terminal.value = null
+    } else {
+      try {
+        var instruction = parse(input.value)
+        console.log(instruction, input.value)
+        robot.instruct(instruction)
+        display(robot.report())
+      } catch (err) {
+        display(err)
+      }
     }
+    input.value = null
   }
+
 })
