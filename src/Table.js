@@ -1,5 +1,4 @@
 export default class Table {
-
   /*
    *
    * @param  {[type]} size - 5 creates a board 0 -> 4

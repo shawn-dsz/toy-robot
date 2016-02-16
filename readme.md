@@ -1,23 +1,24 @@
 # Toy Robot Simulator
-[Demo](http://robosim.surge.sh)
-## Objective
 
-I have written the app with minimal CSS and DOM manipulation on purpose.
+Check out the [Demo](http://robosim.surge.sh)
+
+## Remarks
+
 The purpose of the project is to solve the Toy Robot puzzle described.
-
-## Usage
-
-Open index.html in your browser.
-
-
-## Architecture
-
-There are 4 main components
+I am aware FOUC is obvious but have chosen to ignore it for this project.
+Since this is not the purpose of this project.
+I have written the app with minimal CSS and DOM manipulation, but paid attention
+to architect the JavaScript logic in a long term scalable manner.
+CSS is not optimal & can be further improved by splitting out the css from ```app.bundle.js```.
 
 - Table - defines the size & validity of robot moves
 - Robot - keeps track of where it is on the board
 - Parse - verifies that user input is valid; does not contain business rules.
 - commands - acts as a type class to resolve user Input
+
+## Usage
+
+Open index.html in your browser.
 
 ## Technologies used
 
@@ -41,9 +42,8 @@ To serve the files using webpack's dev server run the following:
 > npm run dev
 ```
 
-
-
 ---
+
 # Description
 - The application is a simulation of a toy robot moving on a square tabletop, of dimensions 5 units x 5 units.
 - There are no other obstructions on the table surface.

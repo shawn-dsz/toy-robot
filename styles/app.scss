@@ -2,7 +2,7 @@ input, textarea {
   font-size: 125%;
   padding: 5px;
   background-color:  #fff;
-  width: 300px;
+  width: 600px;
 }
 
 textarea {
@@ -19,10 +19,6 @@ textarea {
   font-size: 14px;
 }
 
-.error {
-  color: red;
-}
-
 .container {
   height: 400px;
   display: -webkit-flex;
@@ -32,6 +28,7 @@ textarea {
   -webkit-justify-content: center;
   justify-content: center;
 }
+
 body {
   background-color:  #FFF0E0;
   font-family: sans-serif;

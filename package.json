@@ -1,7 +1,7 @@
 {
-  "name": "",
+  "name": "toy-robot",
   "version": "1.0.0",
-  "description": "",
+  "description": "Simulates a robot on table, robot is prevented from falling off.",
   "scripts": {
     "prepublish": "webpack --colors --progress",
     "test": "karma start conf/karma.conf.js",
