@@ -3,7 +3,7 @@ var Webpack = require('webpack')
 module.exports = {
   entry: [
     // 'webpack/hot/dev-server',
-    'webpack-dev-server/client?http://localhost:8080', // remove this line when build webpack for prod
+    //'webpack-dev-server/client?http://localhost:8080', // remove this line when build webpack for prod
     './src/app'
   ],
   output: {

@@ -11,6 +11,8 @@ Since this is not the purpose of this project.
 I have written the app with minimal CSS and DOM manipulation, but paid attention
 to architect the JavaScript logic in a long term scalable manner.
 
+There is passing 29 unit test that validate the solution works.
+
 ###### Classes
 - ```Table``` - defines the size & validity of robot moves
 - ```Robot``` - keeps track of where it is on the board
