@@ -9,6 +9,7 @@ export default class Table {
   }
 
   isValidPlacement(x, y) {
+    console.log(x, y)
     return x < this.size && y < this.size && x >= 0 && y >= 0
   }
 

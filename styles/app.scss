@@ -13,8 +13,10 @@ textarea {
   overflow:hidden;
 }
 
-.hide {
-  display: none;
+.hint {
+  color: #ACACAC;
+  padding: 10px 0;
+  font-size: 14px;
 }
 
 .error {
@@ -32,4 +34,5 @@ textarea {
 }
 body {
   background-color:  #FFF0E0;
+  font-family: sans-serif;
 }

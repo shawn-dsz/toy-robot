@@ -51,6 +51,13 @@ describe('#parse', () => {
     expect(pos).to.deep.equal({ command: 'REPORT' })
   })
 
+  it('should give error', () => {
+    // const instruction =
+    expect(()=>parse('MOVsE')).to.throw(Error)
+  })
 
-
+  it('should give error', () => {
+    // const instruction =
+    expect(()=>parse('place , , east')).to.throw(Error)
+  })
 })

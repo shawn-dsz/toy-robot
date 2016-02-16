@@ -8,7 +8,7 @@ describe('Given a robot', () => {
   let table
   let robot
 
-  beforeEach(function() {
+  beforeEach(() => {
       table = new Table(5)
       robot = new Robot(table)
   })
@@ -18,8 +18,9 @@ describe('Given a robot', () => {
     expect(robot.report()).to.equal('Output: 1, 2, EAST')
   })
 
-  describe('is placed', () => {
-    beforeEach(function() {
+  describe('is placed in valid locations', () => {
+    beforeEach(() => {
+      console.log('table', table.size)
       const instruction = parse('PLACE 2, 2, EAST')
       robot.instruct(instruction)
     })
@@ -75,25 +76,29 @@ describe('Given a robot', () => {
   })
 
   describe('is on the edge', () => {
-    beforeEach(function() {
-      table = new Table(1)
+    beforeEach(() => {
+      table = new Table(3)
       robot = new Robot(table)
-      const instruction = parse('PLACE 0, 0, EAST')
-      robot.instruct(instruction)
     })
 
     it('it should NOT be able to move to the east', () => {
+      const instruction = parse('PLACE 2, 0, EAST')
+      robot.instruct(instruction)
       robot.move()
-      expect(robot.report()).to.equal('Output: 0, 0, EAST')
+      expect(robot.report()).to.equal('Output: 2, 0, EAST')
     })
 
     it('it should NOT be able to move to the north', () => {
+      const instruction = parse('PLACE 0, 2, EAST')
+      robot.instruct(instruction)
       robot.turnLeft()
       robot.move()
-      expect(robot.report()).to.equal('Output: 0, 0, NORTH')
+      expect(robot.report()).to.equal('Output: 0, 2, NORTH')
     })
 
     it('it should NOT be able to move to the west', () => {
+      const instruction = parse('PLACE 0, 0, EAST')
+      robot.instruct(instruction)
       robot.turnLeft()
       robot.turnLeft()
       robot.move()
@@ -101,6 +106,8 @@ describe('Given a robot', () => {
     })
 
     it('it should NOT be able to move to the south', () => {
+      const instruction = parse('PLACE 0, 0, EAST')
+      robot.instruct(instruction)
       robot.turnLeft()
       robot.turnLeft()
       robot.turnLeft()
@@ -109,26 +116,25 @@ describe('Given a robot', () => {
     })
   })
 
-  describe('attempt to place it in an invalid position', () => {
-    beforeEach(function() {
+  describe('PLACE should be the first command', () => {
+    beforeEach(() => {
       table = new Table(2)
       robot = new Robot(table)
-      //const instruction = parse('PLACE 1, 1, EAST')
-      // expect(()=>{robot.instruct(instruction)}).to.throw(Error)
     })
-    //
-    // it('it should move & turn', () => {
-    //   robot.move()
-    //   robot.move()
-    //   robot.turnLeft()
-    //   robot.move()
-    //   expect(robot.report()).to.equal('Output: 3, 3, NORTH')
-    // })
-    //
 
-    // it('should bot be able to report without first being placed', () => {
-    //   const instruction = parse('REPORT')
-    //   expect(()=>{robot.instruct(instruction)}).to.throw(Error)
-    // })
+    it('should bot be able to report without first being placed', () => {
+      const instruction = parse('REPORT')
+      expect(()=>robot.instruct(instruction)).to.throw(Error)
+    })
+
+
+    it('should bot be able to MOVE without first being placed', () => {
+      const instruction = parse('MOVE')
+      expect(()=>robot.instruct(instruction)).to.throw(Error)
+    })
+
+    it('should give error when invalid command', () => {
+      expect(()=>parse('MOVsE')).to.throw(Error)
+    })
   })
 })

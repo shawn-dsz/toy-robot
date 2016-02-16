@@ -24,7 +24,7 @@ export default class Robot {
         this.turnLeft()
         break
       case ROTATE.RIGHT:
-        this.rotateRight()
+        this.turnRight()
         break
       case COMMAND.PLACE:
         this.place(x, y, direction)
@@ -59,11 +59,18 @@ export default class Robot {
   }
 
   report() {
-    console.log(this.x, this.y, this.direction)
-    return `Output: ${this.x}, ${this.y}, ${this.direction}`
+    if(this.x === undefined || this.y === undefined || this.direction === undefined) {
+      throw new Error('Cannot Report without placing robot')
+    } else {
+      console.log(this.x, this.y, this.direction)
+      return `Output: ${this.x}, ${this.y}, ${this.direction}`
+    }
   }
 
   move() {
+    if(!this.direction){
+      throw new Error('direction must be set.')
+    }
     switch (this.direction) {
       case FACING.NORTH:
         this.moveNorth()
@@ -107,7 +114,7 @@ export default class Robot {
   }
 
   moveWest() {
-    if (this.table.isOnTable(this.x + 1)) {
+    if (this.table.isOnTable(this.x - 1)) {
       this.x--
     } else {
       console.log('Invalid placement')
