@@ -6,15 +6,17 @@ Check out the [Demo](http://robosim.surge.sh)
 
 The purpose of the project is to solve the Toy Robot puzzle described.
 I am aware FOUC is obvious but have chosen to ignore it for this project.
+However, a simple I can resolve this is by by splitting out the css from ```app.bundle.js```.
 Since this is not the purpose of this project.
 I have written the app with minimal CSS and DOM manipulation, but paid attention
 to architect the JavaScript logic in a long term scalable manner.
-CSS is not optimal & can be further improved by splitting out the css from ```app.bundle.js```.
 
-- Table - defines the size & validity of robot moves
-- Robot - keeps track of where it is on the board
-- Parse - verifies that user input is valid; does not contain business rules.
-- commands - acts as a type class to resolve user Input
+###### Classes
+- ```Table``` - defines the size & validity of robot moves
+- ```Robot``` - keeps track of where it is on the board
+- ```Parse``` - verifies that user input is valid; does not contain business rules.
+- ```commands``` - acts as a type class to resolve user Input
+- ```directionResolver``` - defines the rules for moving left or right
 
 ## Usage
 
