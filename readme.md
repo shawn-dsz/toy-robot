@@ -1,5 +1,5 @@
 # Toy Robot Simulator
-
+[Demo](http://robosim.surge.sh)
 ## Objective
 
 I have written the app with minimal CSS and DOM manipulation on purpose.
@@ -10,11 +10,21 @@ The purpose of the project is to solve the Toy Robot puzzle described.
 Open index.html in your browser.
 
 
+## Architecture
+
+There are 4 main components
+
+- Table - defines the size & validity of robot moves
+- Robot - keeps track of where it is on the board
+- Parse - verifies that user input is valid; does not contain business rules.
+- commands - acts as a type class to resolve user Input
+
 ## Technologies used
 
 - ES2015 & [Babel](https://babeljs.io/docs/learn-es2015/)
 - [Webpack](https://webpack.github.io/)
 - [Karma Test Runner](https://karma-runner.github.io/0.13/index.html)
+- [sass](http://sass-lang.com/)
 
 ## Installation
 
@@ -30,8 +40,6 @@ To serve the files using webpack's dev server run the following:
 ```
 > npm run dev
 ```
-
-## Architecture
 
 
 
