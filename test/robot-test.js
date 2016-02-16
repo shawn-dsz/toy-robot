@@ -18,6 +18,10 @@ describe('Given a robot', () => {
     expect(robot.report()).to.equal('Output: 1, 2, EAST')
   })
 
+  it('should give error when invalid command', () => {
+    expect(() => parse('MOVsE')).to.throw(Error)
+  })
+
   describe('is placed in valid locations', () => {
     beforeEach(() => {
       console.log('table', table.size)
@@ -116,19 +120,4 @@ describe('Given a robot', () => {
     })
   })
 
-  describe('PLACE should be the first command', () => {
-    beforeEach(() => {
-      table = new Table(2)
-      robot = new Robot(table)
-    })
-
-    it('should not be able to REPORT without first being placed', () => {
-      const instruction = parse('REPORT')
-      expect(() => robot.instruct(instruction)).to.throw(Error)
-    })
-
-    it('should give error when invalid command', () => {
-      expect(() => parse('MOVsE')).to.throw(Error)
-    })
-  })
 })
