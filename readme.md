@@ -22,7 +22,7 @@ There is passing 29 unit test that validate the solution works.
 
 ## Usage
 
-Open index.html in your browser.
+Open index.html in your browser or navigate to [robosim.surge.sh](http://robosim.surge.sh).
 
 ## Technologies used
 

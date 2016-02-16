@@ -15,22 +15,22 @@ describe('Given a Table', () => {
 
   it('it should not be place outside vertical size', () => {
       const instruction = parse('PLACE 1, 2, WEST')
-      expect(()=>{robot.instruct(instruction)}).to.throw(Error)
+      expect(() => robot.instruct(instruction)).to.throw(Error)
   })
 
   it('it should not be place outside horizontal size', () => {
       const instruction = parse('PLACE 2, 1, WEST')
-      expect(()=>{robot.instruct(instruction)}).to.throw(Error)
+      expect(() => robot.instruct(instruction)).to.throw(Error)
   })
 
   it('it should not be placed in a negative x postion', () => {
       const instruction = parse('PLACE -1, 1, WEST')
-      expect(()=> {robot.instruct(instruction)}).to.throw(Error)
+      expect(() => robot.instruct(instruction)).to.throw(Error)
   })
 
   it('it should not be placed in a negative y postion', () => {
       const instruction = parse('PLACE 1, -1, WEST')
-      expect(()=> {robot.instruct(instruction)}).to.throw(Error)
+      expect(() => robot.instruct(instruction)).to.throw(Error)
   })
 
   describe('Given a Table', () => {

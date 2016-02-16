@@ -122,19 +122,13 @@ describe('Given a robot', () => {
       robot = new Robot(table)
     })
 
-    it('should bot be able to report without first being placed', () => {
+    it('should not be able to REPORT without first being placed', () => {
       const instruction = parse('REPORT')
-      expect(()=>robot.instruct(instruction)).to.throw(Error)
-    })
-
-
-    it('should bot be able to MOVE without first being placed', () => {
-      const instruction = parse('MOVE')
-      expect(()=>robot.instruct(instruction)).to.throw(Error)
+      expect(() => robot.instruct(instruction)).to.throw(Error)
     })
 
     it('should give error when invalid command', () => {
-      expect(()=>parse('MOVsE')).to.throw(Error)
+      expect(() => parse('MOVsE')).to.throw(Error)
     })
   })
 })

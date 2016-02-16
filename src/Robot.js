@@ -1,17 +1,55 @@
 import { FACING, COMMAND, ROTATE } from './consts/commands'
 import { LeftMap, RightMap } from './util/directionResolver'
 
+let _x = null
+let _y = null
+let _direction = null
+let _table
+
+const moveNorth = () => {
+  if (_table.isOnTable(_y + 1)) {
+    _y++
+  } else {
+    console.log('Invalid placement')
+  }
+}
+
+const moveSouth = () => {
+  if (_table.isOnTable(_y - 1)) {
+    _y--
+  } else {
+    console.log('Invalid placement')
+  }
+}
+
+const moveEast = () => {
+  if (_table.isOnTable(_x + 1)) {
+    _x++
+  } else {
+    console.log('Invalid placement')
+  }
+}
+
+const moveWest = () => {
+  if (_table.isOnTable(_x - 1)) {
+    _x--
+  } else {
+    console.log('Invalid placement')
+  }
+}
+
 export default class Robot {
   constructor(table) {
     if (!table) {
       throw new Error('table is required')
     } else {
-      this.table = table
+      _table = table
     }
   }
 
   instruct(instruction) {
     const { command, direction, x, y } = instruction
+    console.log(_x, _y, _direction)
 
     switch (command) {
       case COMMAND.REPORT:
@@ -35,89 +73,57 @@ export default class Robot {
   }
 
   turnLeft() {
-    this.direction = LeftMap.get(this.direction)
-    console.log('Facing:', this.direction)
+    _direction = LeftMap.get(_direction)
+    console.log('Facing:', _direction)
   }
 
   turnRight() {
-    this.direction = RightMap.get(this.direction)
-    console.log('Facing:', this.direction)
+    _direction = RightMap.get(_direction)
+    console.log('Facing:', _direction)
   }
 
   place(x, y, direction) {
     if(FACING.MAP.get(direction)){
-      this.direction = direction
+      _direction = direction
     } else {
       throw new Error(`Invalid direction`)
     }
-    if (this.table.isValidPlacement(x, y)) {
-      this.x = x
-      this.y = y
+    if (_table.isValidPlacement(x, y)) {
+      _x = x
+      _y = y
     } else {
       throw new Error(`Invalid placement: ${x}, ${y}`)
     }
   }
 
   report() {
-    if(this.x === undefined || this.y === undefined || this.direction === undefined) {
+    if(_x === null || _y === null || _direction === null) {
       throw new Error('Cannot Report without placing robot')
     } else {
-      console.log(this.x, this.y, this.direction)
-      return `Output: ${this.x}, ${this.y}, ${this.direction}`
+      console.log(_x, _y, _direction)
+      return `Output: ${_x}, ${_y}, ${_direction}`
     }
   }
 
   move() {
-    if(!this.direction){
+    if(!_direction){
       throw new Error('direction must be set.')
     }
-    switch (this.direction) {
+    switch (_direction) {
       case FACING.NORTH:
-        this.moveNorth()
+        moveNorth()
         break
       case FACING.SOUTH:
-        this.moveSouth()
+        moveSouth()
         break
       case FACING.EAST:
-        this.moveEast()
+        moveEast()
         break
       case FACING.WEST:
-        this.moveWest()
+        moveWest()
         break
       default:
         throw new Error('Invalid direction')
-    }
-  }
-
-  moveNorth() {
-    if (this.table.isOnTable(this.y + 1)) {
-      this.y++
-    } else {
-      console.log('Invalid placement')
-    }
-  }
-
-  moveSouth() {
-    if (this.table.isOnTable(this.y - 1)) {
-      this.y--
-    } else {
-      console.log('Invalid placement')
-    }
-  }
-
-  moveEast() {
-    if (this.table.isOnTable(this.x + 1)) {
-      this.x++
-    } else {
-      console.log('Invalid placement')
-    }
-  }
-
-  moveWest() {
-    if (this.table.isOnTable(this.x - 1)) {
-      this.x--
-    } else {
-      console.log('Invalid placement')
     }
   }
 
