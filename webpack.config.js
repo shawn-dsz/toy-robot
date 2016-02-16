@@ -3,16 +3,13 @@ var Webpack = require('webpack')
 module.exports = {
   entry: [
     // 'webpack/hot/dev-server',
-    'webpack-dev-server/client?http://localhost:8080',
+    'webpack-dev-server/client?http://localhost:8080', // remove this line when build webpack for prod
     './src/app'
   ],
-
-
   output: {
     path: __dirname,
     filename: './dist/app.bundle.js'
   },
-
   // devtool: 'inline-source-map',
   module: {
     preLoaders: [{
@@ -45,7 +42,6 @@ module.exports = {
     new Webpack.NoErrorsPlugin()
   ],
   stats: {
-    // Nice colored output
     colors: true
   }
 }
