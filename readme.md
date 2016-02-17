@@ -14,10 +14,10 @@ Following object-oriented principals I have modelled the problem space using the
 - ```commands``` - acts as a type class to resolve user Input
 - ```directionResolver``` - defines the rules for moving left or right
 
-The purpose of this project is to solve the Toy Robot puzzle described. I have not spent too much time optimizing the UI. I am aware FOUC is obvious but have chosen to ignore it for this project. However, one simple way I can resolve this is by by splitting out the css from ```app.bundle.js```. I have written the app with minimal CSS and DOM manipulation, but paid attention
+The purpose of this project is to solve the Toy Robot puzzle described. I have not spent too much time optimizing the UI. I am aware FOUC is obvious but have chosen to ignore it for this project. However, one simple way I can resolve this is by splitting out the css from ```app.bundle.js```. I have written the app with minimal CSS and DOM manipulation, but paid attention
 to architect the JavaScript logic in a long term scalable manner.
 
-**Since, the brief stated that object-oriented principal (OOP) is to be used; I have not architected the solution using functional programming (FP).* In retrospect, if free to choose the engineering paradigm, I would implement it using Redux. This is because Redux helps you manage state in a single predictable state container. Which makes it easy to reason about with increasingly complex state changes.
+**Since, the brief stated that object-oriented principal (OOP) is to be used; I have not architected the solution using functional programming (FP).* In retrospect, if free to choose the engineering paradigm, I would implement it using Redux. This is because Redux helps you manage state in a single predictable state container. Which makes it easy to reason about with increasingly complex state changes. I also like the idea of uni-direction data flow to render UI.
 
 
 ###### Development workflow
